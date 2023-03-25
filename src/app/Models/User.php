@@ -45,14 +45,25 @@ class User extends Authenticatable
     ];
 
     /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getEmail()
+    /**
+     * @return string
+     */
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -67,6 +78,10 @@ class User extends Authenticatable
         return $this;
     }
 
+    /**
+     * @param string $timezone
+     * @return $this
+     */
     public function setTimezone(string $timezone): self
     {
         $this->timezone = $timezone;

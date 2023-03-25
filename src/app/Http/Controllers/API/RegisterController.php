@@ -31,8 +31,8 @@ class RegisterController extends Controller
         $input['password'] = bcrypt($request->get('password'));
         $user = $this->userRepository->create($input);
 
-        // Відправлення листа
-        Mail::to($user->getEmail())->send(new UserRegistered($user));
+        // Sending mail
+        Mail::to($user->getEmail())->queue(new UserRegistered($user));
 
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->getName();

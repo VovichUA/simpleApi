@@ -31,8 +31,8 @@ class UserRegistered extends Mailable
         return $this->view('emails.user-registered')
             ->subject('User Registered')
             ->with([
-                'name' => $this->user->name,
-                'email' => $this->user->email,
+                'name' => $this->user->getName(),
+                'email' => $this->user->getEmail(),
             ]);
     }
 }

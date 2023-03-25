@@ -12,7 +12,7 @@ class UserRepository
      * @param  array  $data
      * @return User
      */
-    public function create(array $data)
+    public function create(array $data): User
     {
         return User::create([
             'name' => $data['name'],
